@@ -30,9 +30,8 @@ To store and remove a Tick I used 4 Runnable:
 * two are enqued on tick creation to remove the tick from the data structures and re-calculate the statistics at the right time
 
 I decided that 100% consistency among the single instrument and the global stats endpoints was not always crucial for our system, so i'm not "waiting" for single instrument update to proceed with re-calculation of global stats.
-I tried to implement a mitigation of the possible inconcistency on tick removal from the arrays,
-enqueueing the runnable "earlier" proportionally to the size of the array. 
-This is a really high level attenuation that would need tuning with an up to speed system, but i wanna make clear that i know that needs more care
+I tried to implement a mitigation of the possible inconcistency on tick removal from the arrays, enqueueing the runnables "earlier" proportionally to the size of the arrays. 
+This is a really high level attenuation that would need tuning with an up to speed system, but i wanna make clear that i know that needs more care.
 
 # Coding languages
 
@@ -43,10 +42,11 @@ For the tests i used spock because i use it daily.
 Requested dependencies have been added into build.gradle hopefully that works out of the box for you!
 
 # Does this scale?
- 
-I see this task scaled in a event-based distributed system, would not use this code.
-I'm not gonna dive in there but i may imagine: multi source -> queue system -> subscribers "nodes"
+
+Not really, executuion time increases linearly with number of ticks, a certain degree stability could be reached by observing ticks I/O when the system is up to speed and tune it around the average load value.
+
+I see this task scaled in a event-based distributed system like: multi source -> queue system -> subscribers nodes
 
 # Was it fun?
 
-Yes! Thank you, it was very fun! I did enjoy the challenge, it's well explained and hides some interesting difficulties. 
+Yes! Thank you, it was very fun! I did enjoy the challenge, it's well explained and hides some interesting difficulties in complexity and parallelization.
