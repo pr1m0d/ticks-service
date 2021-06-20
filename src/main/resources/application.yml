@@ -1,0 +1,14 @@
+micronaut:
+  application:
+    name: ticks-service
+  server:
+    maxRequestSize: 1MB
+    host: localhost
+    netty:
+      maxHeaderSize: 500KB
+      worker:
+        threads: 10
+      parent:
+        threads: 10
+      childOptions:
+        autoRead: true

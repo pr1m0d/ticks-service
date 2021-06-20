@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: realtime.ticks.service
+---
+testFramework: junit
+sourceLanguage: java
