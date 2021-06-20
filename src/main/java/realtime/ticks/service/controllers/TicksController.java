@@ -19,7 +19,6 @@ public class TicksController {
 
     @Post("/")
     public HttpStatus validateAndStoreTick(@Body @Valid Tick tick) {
-        tick.setTimestamp(DateTime.now().getMillis() / 1000);
         // let's early return if the tick is too old. I'm excluding the possibility of ticks too much in the future too,
         // while a couple of seconds of sync among server time may happen more make me think that the message is from Martin McFly
         if (tick.getDateTime().isBefore(DateTime.now().minusSeconds(60)) ||
