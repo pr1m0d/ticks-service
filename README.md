@@ -49,4 +49,4 @@ I see this task scaled in a event-based distributed system like: multi source ->
 
 # Was it fun?
 
-Yes! Thank you, it was very fun! I did enjoy the challenge, it's well explained and hides some interesting difficulties in complexity and parallelization.
+Yes! Thank you, it was very fun! I did enjoy the challenge, it's well explained and hides some interesting challenges in complexity and parallelization.
